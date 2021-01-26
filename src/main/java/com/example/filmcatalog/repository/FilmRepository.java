@@ -1,6 +1,6 @@
-package repository;
+package com.example.filmcatalog.repository;
 
-import entity.Film;
+import com.example.filmcatalog.entity.Film;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

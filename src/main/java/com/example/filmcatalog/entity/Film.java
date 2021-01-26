@@ -1,4 +1,4 @@
-package entity;
+package com.example.filmcatalog.entity;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,11 +1,10 @@
-package controller;
+package com.example.filmcatalog.controller;
 
 
-import entity.Director;
+import com.example.filmcatalog.entity.Director;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.DirectorService;
+import com.example.filmcatalog.service.DirectorService;
 
 import java.util.List;
 
@@ -32,8 +31,8 @@ public class DirectorRestController {
     public Director createDirector(@RequestBody Director director){
         return directorService.createDirector(director);
     }
-    @DeleteMapping
-    public void deleteDirectorById(Long id){
+    @DeleteMapping(value = "/{id}")
+    public void deleteDirectorById(@PathVariable("id") Long id){
         directorService.deleteDirectorById(id);
     }
 }

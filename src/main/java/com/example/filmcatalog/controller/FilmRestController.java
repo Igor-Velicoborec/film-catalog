@@ -1,11 +1,9 @@
-package controller;
+package com.example.filmcatalog.controller;
 
-import entity.Director;
-import entity.Film;
+import com.example.filmcatalog.entity.Film;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.FilmService;
+import com.example.filmcatalog.service.FilmService;
 
 import java.util.List;
 
@@ -21,7 +19,7 @@ public class FilmRestController {
     }
 
     @GetMapping
-    public List<Film> getAllFilm(){
+    public List<Film> getAllFilms(){
         return filmService.getAllFilm();
     }
 
@@ -33,8 +31,8 @@ public class FilmRestController {
     public Film createFilm(@RequestBody Film film){
         return filmService.createFilm(film);
     }
-    @DeleteMapping
-    public void deleteFilmById(Long id){
+    @DeleteMapping(value = "/{id}")
+    public void deleteFilmById(@PathVariable("id") Long id){
         filmService.deleteFilmById(id);
     }
 

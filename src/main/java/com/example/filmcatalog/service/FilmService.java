@@ -1,7 +1,7 @@
-package service;
+package com.example.filmcatalog.service;
 
 
-import entity.Film;
+import com.example.filmcatalog.entity.Film;
 
 import java.util.List;
 

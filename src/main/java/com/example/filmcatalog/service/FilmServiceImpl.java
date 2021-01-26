@@ -1,10 +1,9 @@
-package service;
+package com.example.filmcatalog.service;
 
 
-import entity.Film;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.filmcatalog.entity.Film;
 import org.springframework.stereotype.Service;
-import repository.FilmRepository;
+import com.example.filmcatalog.repository.FilmRepository;
 
 import java.util.List;
 

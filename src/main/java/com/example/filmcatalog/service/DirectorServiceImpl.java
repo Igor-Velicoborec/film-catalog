@@ -1,10 +1,9 @@
-package service;
+package com.example.filmcatalog.service;
 
-import entity.Director;
+import com.example.filmcatalog.entity.Director;
 import lombok.NonNull;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.DirectorRepository;
+import com.example.filmcatalog.repository.DirectorRepository;
 
 import java.util.List;
 

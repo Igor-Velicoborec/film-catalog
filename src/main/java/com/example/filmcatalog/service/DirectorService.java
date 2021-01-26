@@ -1,6 +1,6 @@
-package service;
+package com.example.filmcatalog.service;
 
-import entity.Director;
+import com.example.filmcatalog.entity.Director;
 
 import java.util.List;
 
