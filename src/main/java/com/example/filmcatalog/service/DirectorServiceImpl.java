@@ -36,4 +36,9 @@ public class DirectorServiceImpl implements DirectorService {
         directorRepository.deleteById(id);
 
     }
+
+    @Override
+    public Director updateDirector(Long id, Director director) {
+        return directorRepository.save(director);
+    }
 }

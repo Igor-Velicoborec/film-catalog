@@ -31,6 +31,11 @@ public class DirectorRestController {
     public Director createDirector(@RequestBody Director director){
         return directorService.createDirector(director);
     }
+    @PatchMapping(value = "/{id}")
+    public Director updateDirector(@PathVariable("id")Long id,@RequestBody Director director){
+        return directorService.updateDirector(id, director);
+    }
+
     @DeleteMapping(value = "/{id}")
     public void deleteDirectorById(@PathVariable("id") Long id){
         directorService.deleteDirectorById(id);

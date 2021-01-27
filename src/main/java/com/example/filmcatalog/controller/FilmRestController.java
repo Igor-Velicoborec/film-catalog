@@ -4,7 +4,6 @@ import com.example.filmcatalog.entity.Film;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import com.example.filmcatalog.service.FilmService;
-
 import java.util.List;
 
 @RestController
@@ -19,20 +18,27 @@ public class FilmRestController {
     }
 
     @GetMapping
-    public List<Film> getAllFilms(){
+    public List<Film> getAllFilms() {
         return filmService.getAllFilm();
     }
 
     @GetMapping(value = "/{id}")
-    public Film getById(@PathVariable("id")Long id){
+    public Film getById(@PathVariable("id") Long id) {
         return filmService.getByIdFilm(id);
     }
+
     @PostMapping
-    public Film createFilm(@RequestBody Film film){
+    public Film createFilm(@RequestBody Film film) {
         return filmService.createFilm(film);
     }
+
+    @PatchMapping(value = "/{id}")
+    public Film updateFilm(@PathVariable("id") Long id, @RequestBody Film film) {
+        return filmService.updateFilm(id, film);
+    }
+
     @DeleteMapping(value = "/{id}")
-    public void deleteFilmById(@PathVariable("id") Long id){
+    public void deleteFilmById(@PathVariable("id") Long id) {
         filmService.deleteFilmById(id);
     }
 

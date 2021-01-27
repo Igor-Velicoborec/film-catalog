@@ -13,4 +13,6 @@ public interface DirectorService {
     Director createDirector(Director director);
 
    void  deleteDirectorById(Long id);
+
+   Director updateDirector(Long id, Director director);
 }
