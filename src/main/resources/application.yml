@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Film Catalog Application
+  datasource:
+    url: jdbc:postgresql://localhost:5432/film_catalog_bd
+    username: postgres
+    password: postgres

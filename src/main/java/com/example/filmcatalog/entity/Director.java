@@ -1,36 +1,31 @@
 package com.example.filmcatalog.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Director {
-     @Id
-     @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @OneToMany
+    List<Film> film;
 
-     private String firstName;
 
-     private String lastName;
+    private String firstName;
 
-     private Date birthDate;
+    private String lastName;
 
-    public Director(long id, String firstName, String lastName, Date birthDate) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-    }
+    private Date birthDate;
 
-    public Director() {
-    }
+
 }
