@@ -1,0 +1,17 @@
+#a request for a film by the name of the director which starts with the first 3 letters
+#'___%" <---substituted values
+
+
+select film.name
+from film
+inner join director on film.director_id=director.id
+where director.last_name like '___%';
+
+
+#request to search for a movie by release date
+
+select film.name
+from film
+where release_date between '1991/02/01' and '2011/01/01'
+   or release_date >='2000-01-01'
+   or release_date <='2011-01-01'

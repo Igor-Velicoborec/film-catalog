@@ -11,6 +11,7 @@ import java.sql.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "film")
 public class Film {
 
     @Id
@@ -18,6 +19,7 @@ public class Film {
     private long id;
 
     @ManyToOne
+    @JoinColumn(name="director_id", nullable=false)
     private Director director;
 
     private String name;
