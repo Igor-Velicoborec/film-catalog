@@ -19,27 +19,27 @@ public class FilmRestController {
 
     @GetMapping
     public List<Film> getAllFilms() {
-        return filmService.getAllFilm();
+        return filmService.getAll();
     }
 
     @GetMapping(value = "/{id}")
     public Film getById(@PathVariable("id") Long id) {
-        return filmService.getByIdFilm(id);
+        return filmService.getById(id);
     }
 
     @PostMapping
     public Film createFilm(@RequestBody Film film) {
-        return filmService.createFilm(film);
+        return filmService.create(film);
     }
 
-    @PatchMapping(value = "/{id}")
+    @PutMapping(value = "/{id}")
     public Film updateFilm(@PathVariable("id") Long id, @RequestBody Film film) {
-        return filmService.updateFilm(id, film);
+        return filmService.update(id, film);
     }
 
     @DeleteMapping(value = "/{id}")
     public void deleteFilmById(@PathVariable("id") Long id) {
-        filmService.deleteFilmById(id);
+        filmService.deleteById(id);
     }
 
 }

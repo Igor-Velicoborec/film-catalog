@@ -11,7 +11,6 @@ import java.sql.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "film")
 public class Film {
 
     @Id

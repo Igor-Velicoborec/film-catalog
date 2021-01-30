@@ -19,25 +19,25 @@ public class DirectorRestController {
         this.directorService = directorService;
     }
     @GetMapping
-    public List<Director> getAllDirector(){
-        return directorService.getAllDirector();
+    public List<Director> getAll(){
+        return directorService.getAll();
     }
 
     @GetMapping(value = "/{id}")
     public Director getById(@PathVariable("id")Long id){
-       return directorService.getByIdDirector(id);
+       return directorService.getById(id);
     }
     @PostMapping
-    public Director createDirector(@RequestBody Director director){
-        return directorService.createDirector(director);
+    public Director create(@RequestBody Director director){
+        return directorService.create(director);
     }
-    @PatchMapping(value = "/{id}")
-    public Director updateDirector(@PathVariable("id")Long id,@RequestBody Director director){
-        return directorService.updateDirector(id, director);
+    @PutMapping(value = "/{id}")
+    public Director update(@PathVariable("id")Long id,@RequestBody Director director){
+        return directorService.update(id, director);
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteDirectorById(@PathVariable("id") Long id){
-        directorService.deleteDirectorById(id);
+    public void deleteById(@PathVariable("id") Long id){
+        directorService.deleteById(id);
     }
 }

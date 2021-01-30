@@ -17,28 +17,28 @@ public class DirectorServiceImpl implements DirectorService {
     }
 
     @Override
-    public List<Director> getAllDirector() {
+    public List<Director> getAll() {
         return directorRepository.findAll();
     }
 
     @Override
-    public Director getByIdDirector(Long id) {
+    public Director getById(Long id) {
         return directorRepository.getOne(id);
     }
 
     @Override
-    public Director createDirector(Director director) {
+    public Director create(Director director) {
         return directorRepository.save(director);
     }
 
     @Override
-    public void deleteDirectorById(@NonNull Long id) {
+    public void deleteById(@NonNull Long id) {
         directorRepository.deleteById(id);
 
     }
 
     @Override
-    public Director updateDirector(Long id, Director director) {
+    public Director update(Long id, Director director) {
         return directorRepository.save(director);
     }
 }

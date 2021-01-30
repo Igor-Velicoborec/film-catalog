@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface FilmService {
 
-    List<Film> getAllFilm();
+    List<Film> getAll();
 
-    Film getByIdFilm(Long id);
+    Film getById(Long id);
 
-    Film createFilm(Film film);
+    Film create(Film film);
 
-    void  deleteFilmById(Long id);
+    void  deleteById(Long id);
 
-    Film updateFilm(Long id, Film film);
+    Film update(Long id, Film film);
 }
