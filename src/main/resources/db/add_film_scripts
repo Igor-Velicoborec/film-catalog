@@ -1,0 +1,13 @@
+#test data for adding films
+
+insert into film(id, director_id, name, release_date, genre)
+values (1,1,'Terminator', date'2000-01-01', 'Thriller');
+
+insert into film(id, director_id, name, release_date, genre)
+values (2,1,'Kill Bill', date'1999-02-01', 'Comedy');
+
+insert into film(id, director_id, name, release_date, genre)
+values (3,2,'Spider Man', date'2002-07-08', 'Thriller');
+
+insert into film(id, director_id, name, release_date, genre)
+values (4,3,'Batman', date'2010-11-10', 'Thriller')

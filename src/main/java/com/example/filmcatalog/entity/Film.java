@@ -18,7 +18,7 @@ public class Film {
     private long id;
 
     @ManyToOne
-    Director director;
+    private Director director;
 
     private String name;
 

@@ -2,6 +2,13 @@ spring:
   application:
     name: Film Catalog Application
   datasource:
-    url: jdbc:postgresql://localhost:5432/film_catalog_bd
+    url: jdbc:postgresql://localhost:5433/film_catalog_db
     username: postgres
-    password: postgres
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+

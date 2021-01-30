@@ -17,8 +17,8 @@ public class Director {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany
-    List<Film> film;
+    @OneToMany(mappedBy = "director")
+    private List<Film> film;
 
 
     private String firstName;
@@ -26,6 +26,7 @@ public class Director {
     private String lastName;
 
     private Date birthDate;
+
 
 
 }
