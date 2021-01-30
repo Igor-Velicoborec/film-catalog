@@ -8,3 +8,7 @@ values(2,'Vadim','Pygovkin',date'1978-02-02');
 
 insert into director(id, first_name, last_name, birth_date)
 values (3,'Igor','Pranikov', date'1992-09-19');
+
+insert into director(id, first_name, last_name, birth_date)
+values (4,'Pavel','Rogov', date'1996-01-01');
+

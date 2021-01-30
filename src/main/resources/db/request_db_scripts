@@ -2,7 +2,7 @@
 #'___%" <---substituted values
 
 
-select film.name
+select director.first_name, director.last_name, director.birth_date, film.name, film.release_date, film.genre
 from film
 inner join director on film.director_id=director.id
 where director.last_name like '___%';
@@ -10,7 +10,7 @@ where director.last_name like '___%';
 
 #request to search for a movie by release date
 
-select film.name
+select director.first_name, director.last_name, director.birth_date, film.name, film.release_date, film.genre
 from film
 where release_date between '1991/02/01' and '2011/01/01'
    or release_date >='2000-01-01'
