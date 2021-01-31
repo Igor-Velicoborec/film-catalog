@@ -2,6 +2,7 @@ package com.example.filmcatalog.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Proxy(lazy = false)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +22,7 @@ public class Director {
     private long id;
 
     @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true)
+            orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name="director_id")
     private List<Film> films= new ArrayList<>();
 
@@ -31,7 +33,9 @@ public class Director {
 
     private Date birthDate;
 
-    public void addDirectorFilm(Film film) { films.add(film);}
+    public void addDirectorFilm(Film film) {
+        films.add(film);
+    }
 
 
 
