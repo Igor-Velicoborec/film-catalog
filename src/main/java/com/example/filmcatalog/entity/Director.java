@@ -1,5 +1,6 @@
 package com.example.filmcatalog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Data
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class Director {
@@ -28,6 +30,8 @@ public class Director {
     private String lastName;
 
     private Date birthDate;
+
+    public void addDirectorFilm(Film film) { films.add(film);}
 
 
 

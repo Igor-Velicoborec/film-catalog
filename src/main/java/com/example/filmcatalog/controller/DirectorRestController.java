@@ -3,6 +3,7 @@ package com.example.filmcatalog.controller;
 
 import com.example.filmcatalog.entity.Director;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import com.example.filmcatalog.service.DirectorService;
 
@@ -22,7 +23,7 @@ public class DirectorRestController {
     public List<Director> getAll(){
         return directorService.getAll();
     }
-
+    @Transactional
     @GetMapping(value = "/{id}")
     public Director getById(@PathVariable("id")Long id){
        return directorService.getById(id);
