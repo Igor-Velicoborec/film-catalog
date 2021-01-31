@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -17,8 +18,9 @@ public class Director {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany(mappedBy = "director")
-    private List<Film> film;
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Film> films= new ArrayList<>();
 
 
     private String firstName;

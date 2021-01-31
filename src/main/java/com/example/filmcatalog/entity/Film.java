@@ -17,9 +17,6 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name="director_id", nullable=false)
-    private Director director;
 
     private String name;
 
