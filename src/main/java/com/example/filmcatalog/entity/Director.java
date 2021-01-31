@@ -7,8 +7,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,6 +19,7 @@ public class Director {
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)
+    @JoinColumn(name="director_id")
     private List<Film> films= new ArrayList<>();
 
 

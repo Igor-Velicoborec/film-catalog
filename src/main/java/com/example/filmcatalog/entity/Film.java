@@ -6,8 +6,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 
-@Getter
-@Setter
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +15,7 @@ public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
 
 
     private String name;
