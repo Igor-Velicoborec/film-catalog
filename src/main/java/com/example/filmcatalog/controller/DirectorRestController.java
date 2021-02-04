@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.filmcatalog.service.DirectorService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/directors")
@@ -33,12 +34,21 @@ public class DirectorRestController {
         return directorService.create(director);
     }
     @PutMapping(value = "/{id}")
-    public Director update(@PathVariable("id")Long id,@RequestBody Director director){
-        return directorService.update(id, director);
+    public Director update(@PathVariable("id")Long id,@RequestBody Director directorDetails){
+        Optional<Director>  director= Optional.ofNullable(directorService.getById(id));
+        Director newDirector=director.get();
+        newDirector.setId(directorDetails.getId());
+        newDirector.setFilms(directorDetails.getFilms());
+        newDirector.setFirstName(directorDetails.getFirstName());
+        newDirector.setLastName(directorDetails.getLastName());
+        newDirector.setBirthDate(directorDetails.getBirthDate());
+        return directorService.update(id, newDirector);
     }
 
     @DeleteMapping(value = "/{id}")
     public void deleteById(@PathVariable("id") Long id){
+        Optional<Director> directorOptional= Optional.ofNullable(directorService.getById(id));
+        Director director=directorOptional.get();
         directorService.deleteById(id);
     }
 }
