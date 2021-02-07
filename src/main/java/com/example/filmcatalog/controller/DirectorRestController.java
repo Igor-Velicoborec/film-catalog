@@ -60,7 +60,7 @@ public class DirectorRestController {
 
     @GetMapping(value = {"/name/{name}", "/name/{name}/{birthDate}", "/name/{name}/{birthDate}/{releaseDate}"})
     public String nameDirector(@PathVariable String name,@PathVariable(required = false) Date birthDate,
-                               @PathVariable Date releaseDate){
+                               @PathVariable(required = false) Date releaseDate){
         if (name !=null){
             return "Name Director: "+ name;
         } else return "Name Director missing";
