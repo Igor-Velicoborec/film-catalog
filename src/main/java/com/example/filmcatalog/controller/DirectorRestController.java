@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import com.example.filmcatalog.service.DirectorService;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,23 +21,27 @@ public class DirectorRestController {
     public DirectorRestController(DirectorService directorService) {
         this.directorService = directorService;
     }
+
     @GetMapping
-    public List<Director> getAll(){
+    public List<Director> getAll() {
         return directorService.getAll();
     }
+
     @Transactional
     @GetMapping(value = "/{id}")
-    public Director getById(@PathVariable("id")Long id){
-       return directorService.getById(id);
+    public Director getById(@PathVariable("id") Long id) {
+        return directorService.getById(id);
     }
+
     @PostMapping
-    public Director create(@RequestBody Director director){
+    public Director create(@RequestBody Director director) {
         return directorService.create(director);
     }
+
     @PutMapping(value = "/{id}")
-    public Director update(@PathVariable("id")Long id,@RequestBody Director directorDetails){
-        Optional<Director>  director= Optional.ofNullable(directorService.getById(id));
-        Director newDirector=director.get();
+    public Director update(@PathVariable("id") Long id, @RequestBody Director directorDetails) {
+        Optional<Director> director = Optional.ofNullable(directorService.getById(id));
+        Director newDirector = director.get();
         newDirector.setId(directorDetails.getId());
         newDirector.setFilms(directorDetails.getFilms());
         newDirector.setFirstName(directorDetails.getFirstName());
@@ -46,9 +51,18 @@ public class DirectorRestController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteById(@PathVariable("id") Long id){
-        Optional<Director> directorOptional= Optional.ofNullable(directorService.getById(id));
-        Director director=directorOptional.get();
+    public void deleteById(@PathVariable("id") Long id) {
+        Optional<Director> directorOptional = Optional.ofNullable(directorService.getById(id));
+        Director director = directorOptional.get();
         directorService.deleteById(id);
+    }
+
+
+    @GetMapping(value = {"/name/{name}", "/name/{name}/{birthDate}", "/name/{name}/{birthDate}/releaseDate"})
+    public String nameDirector(@PathVariable String name,@PathVariable(required = false) Date birthDate,
+                               @PathVariable Date releaseDate){
+        if (name !=null){
+            return "Name Director: "+ name;
+        } else return "Name Director missing";
     }
 }
