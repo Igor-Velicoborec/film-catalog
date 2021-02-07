@@ -58,11 +58,16 @@ public class DirectorRestController {
     }
 
 
-    @GetMapping(value = {"/name/{name}", "/name/{name}/{birthDate}", "/name/{name}/{birthDate}/{releaseDate}"})
-    public String nameDirector(@PathVariable String name,@PathVariable(required = false) Date birthDate,
-                               @PathVariable(required = false) Date releaseDate){
-        if (name !=null){
-            return "Name Director: "+ name;
-        } else return "Name Director missing";
+    @GetMapping(value = {"/name/{name}",
+            "/name/{name}/{birthDate}",
+            "/name/{name}/{birthDate}/{releaseDate}"})
+    public List<Director> getDirector(@PathVariable(required = false) String birthDate,
+                                      @PathVariable String name,
+                                      @PathVariable(required = false) String releaseDate) {
+        List<Director> directors = null;
+
+        return null;
+
+
     }
 }
