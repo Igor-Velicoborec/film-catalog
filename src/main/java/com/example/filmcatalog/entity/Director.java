@@ -6,6 +6,7 @@ import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Director {
 
     private String lastName;
 
-    private Date birthDate;
+    private LocalDate birthDate;
 
     public void addDirectorFilm(Film film) {
         films.add(film);

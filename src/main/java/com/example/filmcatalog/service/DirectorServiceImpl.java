@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import com.example.filmcatalog.repository.DirectorRepository;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -43,5 +46,21 @@ public class DirectorServiceImpl implements DirectorService {
     @Override
     public Director update(Long id, Director director) {
         return directorRepository.save(director);
+    }
+
+    @Override
+    public List<Director> find(@Valid @NotNull String name, LocalDate releaseFrom, LocalDate releaseTo) {
+       if (releaseFrom !=null & releaseTo!=null){
+           return directorRepository.findDirectorsByFilmsIsBetween(releaseFrom,releaseTo);}
+       if (releaseFrom==null & releaseTo==null) {
+           return directorRepository.findAll();}
+       if (releaseFrom!=null & releaseTo==null){
+           return directorRepository.findDirectorsByFilmsAfter(releaseFrom);}
+       if (releaseFrom==null & releaseTo!=null){
+           return directorRepository.findDirectorsByFilmsBefore(releaseTo);
+       }
+
+
+        return null;
     }
 }

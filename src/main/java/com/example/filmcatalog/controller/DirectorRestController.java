@@ -9,7 +9,7 @@ import com.example.filmcatalog.service.DirectorService;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,10 +60,10 @@ public class DirectorRestController {
     }
 
 
-    @GetMapping(value = "/find/")
-    public List<Director> find(@Valid @NotNull @Positive @RequestParam String name,
-                               @RequestParam(required = false)Date releaseFrom,
-                               @RequestParam(required = false) Date releaseTo) {
+    @GetMapping(value = "/find")
+    public List<Director> find(@Valid @NotNull @RequestParam String name,
+                               @RequestParam LocalDate releaseFrom,
+                               @RequestParam LocalDate releaseTo) {
         List<Director> directors = null;
 
         return null;

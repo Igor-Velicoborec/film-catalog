@@ -5,7 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 
 
 @Data
@@ -24,7 +24,7 @@ public class Film {
 
     private String name;
 
-    private Date releaseDate;
+    private LocalDate releaseDate;
 
     private String genre;
 
