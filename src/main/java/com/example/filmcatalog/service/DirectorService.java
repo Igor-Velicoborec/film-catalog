@@ -21,6 +21,6 @@ public interface DirectorService {
    Director update(Long id, Director director);
 
      List<Director> find(@Valid @NotNull @RequestParam String name,
-                               @RequestParam LocalDate releaseFrom,
-                               @RequestParam LocalDate releaseTo);
+                               @RequestParam (required = false) LocalDate releaseFrom,
+                               @RequestParam (required = false) LocalDate releaseTo);
 }

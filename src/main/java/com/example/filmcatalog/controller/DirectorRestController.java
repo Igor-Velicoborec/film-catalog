@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.filmcatalog.service.DirectorService;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -62,11 +62,11 @@ public class DirectorRestController {
 
     @GetMapping(value = "/find")
     public List<Director> find(@Valid @NotNull @RequestParam String name,
-                               @RequestParam LocalDate releaseFrom,
-                               @RequestParam LocalDate releaseTo) {
-        List<Director> directors = null;
+                               @RequestParam(required = false) LocalDate releaseFrom,
+                               @RequestParam(required = false) LocalDate releaseTo) {
 
-        return null;
+
+        return directorService.find(name, releaseFrom,releaseTo);
 
 
     }

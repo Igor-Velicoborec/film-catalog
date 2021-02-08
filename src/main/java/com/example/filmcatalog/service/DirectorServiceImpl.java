@@ -21,27 +21,32 @@ public class DirectorServiceImpl implements DirectorService {
     public DirectorServiceImpl(DirectorRepository directorRepository) {
         this.directorRepository = directorRepository;
     }
+
     @Transactional
     @Override
     public List<Director> getAll() {
         return directorRepository.findAll();
     }
+
     @Transactional
     @Override
     public Director getById(Long id) {
         return directorRepository.getOne(id);
     }
+
     @Transactional
     @Override
     public Director create(Director director) {
         return directorRepository.save(director);
     }
+
     @Transactional
     @Override
     public void deleteById(@NonNull Long id) {
         directorRepository.deleteById(id);
 
     }
+
     @Transactional
     @Override
     public Director update(Long id, Director director) {
@@ -50,17 +55,15 @@ public class DirectorServiceImpl implements DirectorService {
 
     @Override
     public List<Director> find(@Valid @NotNull String name, LocalDate releaseFrom, LocalDate releaseTo) {
-       if (releaseFrom !=null & releaseTo!=null){
-           return directorRepository.findDirectorsByFilmsIsBetween(releaseFrom,releaseTo);}
-       if (releaseFrom==null & releaseTo==null) {
-           return directorRepository.findAll();}
-       if (releaseFrom!=null & releaseTo==null){
-           return directorRepository.findDirectorsByFilmsAfter(releaseFrom);}
-       if (releaseFrom==null & releaseTo!=null){
-           return directorRepository.findDirectorsByFilmsBefore(releaseTo);
-       }
-
-
+        if (releaseFrom != null && releaseTo != null) {
+            return directorRepository.findDirectorsByFilmsReleaseDateIsBetween(releaseFrom, releaseTo);
+        } else if (releaseFrom == null && releaseTo == null) {
+            return directorRepository.findAll();
+        } else if (releaseFrom != null && releaseTo == null) {
+            return directorRepository.findDirectorsByFilmsReleaseDateAfter(releaseFrom);
+        } else if (releaseFrom == null && releaseTo != null) {
+            return directorRepository.findDirectorsByFilmsReleaseDateBefore(releaseTo);
+        }
         return null;
     }
 }

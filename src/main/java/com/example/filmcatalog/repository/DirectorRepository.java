@@ -12,11 +12,11 @@ import java.util.List;
 public interface DirectorRepository extends JpaRepository<Director, Long> {
 
 
-    List<Director> findDirectorsByFilmsIsBetween (LocalDate from, LocalDate to);
+    List<Director> findDirectorsByFilmsReleaseDateIsBetween (LocalDate from, LocalDate to);
 
-    List<Director> findDirectorsByFilmsAfter (LocalDate from);
+    List<Director> findDirectorsByFilmsReleaseDateAfter (LocalDate from);
 
-    List<Director> findDirectorsByFilmsBefore(LocalDate to);
+    List<Director> findDirectorsByFilmsReleaseDateBefore(LocalDate to);
 
 
 
