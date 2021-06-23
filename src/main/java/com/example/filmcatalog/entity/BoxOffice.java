@@ -1,5 +1,6 @@
 package com.example.filmcatalog.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +8,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
-import java.io.Serializable;
-
 
 @Data
 @Entity
@@ -16,18 +15,18 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Embeddable
-public class GenreFilm implements Serializable {
+public class BoxOffice {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    
+    private String country;
 
-    @Column(name = "genre_id")
-    Long genreId;
+    private double boxOffice;
 
-    @Column(name = "film_id")
-    Long filmId;
-
-
+    @OneToOne
+    private Film film;
+    
 
 }

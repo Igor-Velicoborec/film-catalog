@@ -1,0 +1,61 @@
+CREATE TABLE public.box_office
+(
+    id integer NOT NULL DEFAULT nextval('box_office_id_seq'::regclass),
+    country character(250) COLLATE pg_catalog."default" NOT NULL,
+    box_office integer,
+    CONSTRAINT box_office_pk PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.box_office
+    OWNER to postgres;
+
+
+CREATE TABLE public.director
+   (
+       id integer NOT NULL,
+       first_name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+       last_name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+       birth_date date NOT NULL,
+       CONSTRAINT director_pkey PRIMARY KEY (id)
+   )
+
+   TABLESPACE pg_default;
+
+   ALTER TABLE public.director
+       OWNER to postgres;
+
+
+CREATE TABLE public.film
+       (
+           id integer NOT NULL,
+           director_id integer NOT NULL,
+           name character varying(255) COLLATE pg_catalog."default",
+           release_date date,
+           genre character varying(255) COLLATE pg_catalog."default",
+           CONSTRAINT film_pkey PRIMARY KEY (id),
+           CONSTRAINT film_director_id_fkey FOREIGN KEY (director_id)
+               REFERENCES public.director (id) MATCH SIMPLE
+               ON UPDATE NO ACTION
+               ON DELETE NO ACTION
+       )
+
+       TABLESPACE pg_default;
+
+       ALTER TABLE public.film
+           OWNER to postgres;
+
+
+CREATE TABLE public.genre
+           (
+               id integer NOT NULL DEFAULT nextval('genre_id_seq'::regclass),
+               name character(1) COLLATE pg_catalog."default",
+               CONSTRAINT genre_pk PRIMARY KEY (id)
+           )
+
+           TABLESPACE pg_default;
+
+           ALTER TABLE public.genre
+               OWNER to postgres
+

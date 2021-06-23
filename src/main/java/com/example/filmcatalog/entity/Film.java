@@ -32,5 +32,8 @@ public class Film {
     @ManyToMany
     List<Genre> genreList;
 
+    @OneToOne
+    private BoxOffice boxOffice;
+
 
 }
