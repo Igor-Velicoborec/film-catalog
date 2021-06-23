@@ -1,12 +1,13 @@
 package com.example.filmcatalog.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.List;
+import java.io.Serializable;
 
 
 @Data
@@ -15,22 +16,18 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Film {
-
+@Embeddable
+public class GenreFilm implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "genre_id")
+    Long genreId;
 
+    @Column(name = "film_id")
+    Long filmId;
 
-    private String name;
-
-    private LocalDate releaseDate;
-
-    private String genre;
-
-    @ManyToMany
-    List<Genre> genreList;
 
 
 }
