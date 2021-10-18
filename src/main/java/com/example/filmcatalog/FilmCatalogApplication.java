@@ -10,9 +10,6 @@ public class FilmCatalogApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(FilmCatalogApplication.class, args);
-
-
-
     }
 
 }

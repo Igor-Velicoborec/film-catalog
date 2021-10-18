@@ -1,6 +1,5 @@
 package com.example.filmcatalog.controller;
 
-
 import com.example.filmcatalog.entity.Director;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import com.example.filmcatalog.service.DirectorService;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -59,15 +57,10 @@ public class DirectorRestController {
         directorService.deleteById(id);
     }
 
-
     @GetMapping(value = "/find")
     public List<Director> find(@Valid @NotNull @RequestParam String name,
                                @RequestParam(required = false) LocalDate releaseFrom,
                                @RequestParam(required = false) LocalDate releaseTo) {
-
-
-        return directorService.find(name, releaseFrom,releaseTo);
-
-
+        return directorService.find(name, releaseFrom, releaseTo);
     }
 }

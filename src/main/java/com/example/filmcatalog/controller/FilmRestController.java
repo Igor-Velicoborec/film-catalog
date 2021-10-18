@@ -6,7 +6,6 @@ import com.example.filmcatalog.service.DirectorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import com.example.filmcatalog.service.FilmService;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +21,6 @@ public class FilmRestController {
         this.filmService = filmService;
         this.directorService = directorService;
     }
-
 
     @GetMapping
     public List<Film> getAllFilms(@PathVariable Long directorId) {
@@ -59,7 +57,4 @@ public class FilmRestController {
         Film newFilm = film.get();
         filmService.deleteById(id);
     }
-
-
-
 }

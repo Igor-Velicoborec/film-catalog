@@ -1,4 +1,4 @@
-create table director
+#create table director
 (
 id integer not null,
 first_name varchar(255) not null,
